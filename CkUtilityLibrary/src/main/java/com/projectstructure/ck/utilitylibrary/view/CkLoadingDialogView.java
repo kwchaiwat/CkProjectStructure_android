@@ -23,7 +23,7 @@ import java.util.Objects;
  * Created by nakharin on 8/22/2017 AD.
  */
 
-public class PzLoadingDialogView extends DialogFragment {
+public class CkLoadingDialogView extends DialogFragment {
 
     private static final String TAG = "PzLoadingDialogView";
 
@@ -36,9 +36,9 @@ public class PzLoadingDialogView extends DialogFragment {
     private String title = "";
     private boolean cancelable = true;
 
-    public static PzLoadingDialogView newInstance(boolean cancelable) {
-        PzLoadingDialogView fragment =
-                new PzLoadingDialogView();
+    public static CkLoadingDialogView newInstance(boolean cancelable) {
+        CkLoadingDialogView fragment =
+                new CkLoadingDialogView();
         Bundle bundle = new Bundle();
         bundle.putBoolean(KEY_CANCELABLE, cancelable);
         bundle.putString(KEY_TITLE, "Please waiting...");
@@ -48,8 +48,8 @@ public class PzLoadingDialogView extends DialogFragment {
     }
 
 
-    public static PzLoadingDialogView newInstance(String title, boolean cancelable) {
-        PzLoadingDialogView fragment = new PzLoadingDialogView();
+    public static CkLoadingDialogView newInstance(String title, boolean cancelable) {
+        CkLoadingDialogView fragment = new CkLoadingDialogView();
         Bundle bundle = new Bundle();
         bundle.putBoolean(KEY_CANCELABLE, cancelable);
         bundle.putString(KEY_TITLE, title);

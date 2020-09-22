@@ -3,13 +3,12 @@ package com.example.ckprojectstructure_android
 import android.app.Application
 import com.example.ckprojectstructure_android.data.di.*
 import com.example.ckprojectstructure_android.util.album.AlbumMediaLoader
-import com.inthecheesefactory.thecheeselibrary.BuildConfig
 import com.inthecheesefactory.thecheeselibrary.manager.Contextor
 import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.BuildConfig
 import com.orhanobut.logger.Logger
 import com.yanzhenjie.album.Album
 import com.yanzhenjie.album.AlbumConfig
-import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.reactivex.disposables.CompositeDisposable
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -51,6 +50,7 @@ class CkApplication : Application() {
             modules(
                 listOf(
                     preferenceModule,
+                    networkModule,
                     fragmentModule,
                     utilityModule,
                     repositoryModule,

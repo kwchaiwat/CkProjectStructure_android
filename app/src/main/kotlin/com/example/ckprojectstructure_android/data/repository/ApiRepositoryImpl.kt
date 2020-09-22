@@ -1,26 +1,19 @@
 package com.example.ckprojectstructure_android.data.repository
 
+import com.example.ckprojectstructure_android.data.api.ApiResponse
 import com.example.ckprojectstructure_android.data.api.ApiService
-import com.example.ckprojectstructure_android.data.preference.TokenPreference
-import com.example.ckprojectstructure_android.data.preference.UserPreference
+import com.example.ckprojectstructure_android.presentation.main.model.JsonCovidNineteen
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class ApiRepositoryImpl(
-    private val apiService: ApiService,
-    private val userPreference: UserPreference,
-    private val tokenPreference: TokenPreference
+    private val apiService: ApiService
 ) : ApiRepository {
 
-//    override fun postUploadImageECDrive(postUploadImageECDrive: PostUploadImageECDrive): Observable<ApiResponse<Any>> {
-//        val user = getUser()
-//        val postUploadImageECDrive = postUploadImageECDrive.apply {
-//            this.deviceModel = DeviceUtils.getInstance().deviceModel
-//            this.deviceOSVersion = DeviceUtils.getInstance().osVersion
-//            this.memberHeadId = user.headId
-//            this.memberBranchId = user.branchId
-//            this.userid = user.id
-//            this.memberHeadNameTH = user.headNameTH
-//        }
-//        return apiService.postUploadImageECDrive(postUploadImageECDrive)
-//            .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-//    }
+    override fun getCovidNineteen(): Observable<JsonCovidNineteen> {
+        return apiService.getCovieNineteen()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
 }

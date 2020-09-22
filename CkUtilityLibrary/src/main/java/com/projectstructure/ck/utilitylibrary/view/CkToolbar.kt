@@ -10,7 +10,7 @@ import android.widget.FrameLayout
 import com.projectstructure.ck.utilitylibrary.R
 import kotlinx.android.synthetic.main.view_pz_toolbar.view.*
 
-class PzToolbar @JvmOverloads constructor(
+class CkToolbar @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0
@@ -27,20 +27,20 @@ class PzToolbar @JvmOverloads constructor(
         LayoutInflater.from(context).inflate(R.layout.view_pz_toolbar, this, true)
 
         attrs?.let {
-            val a = context.theme.obtainStyledAttributes(it, R.styleable.PzToolbar, defStyleAttr, 0)
+            val a = context.theme.obtainStyledAttributes(it, R.styleable.CkToolbar, defStyleAttr, 0)
 
-            if (a.hasValue(R.styleable.PzToolbar_pz_item_count)) {
-                itemCount = a.getInt(R.styleable.PzToolbar_pz_item_count, 0)
+            if (a.hasValue(R.styleable.CkToolbar_pz_item_count)) {
+                itemCount = a.getInt(R.styleable.CkToolbar_pz_item_count, 0)
                 checkLess100(itemCount)
             }
 
-            if (a.hasValue(R.styleable.PzToolbar_pz_show_back_icon)) {
-                isShowBackIcon = a.getBoolean(R.styleable.PzToolbar_pz_show_back_icon, false)
+            if (a.hasValue(R.styleable.CkToolbar_pz_show_back_icon)) {
+                isShowBackIcon = a.getBoolean(R.styleable.CkToolbar_pz_show_back_icon, false)
                 checkShowBackIcon(isShowBackIcon)
             }
 
-            if (a.hasValue(R.styleable.PzToolbar_pz_show_right_icon)) {
-                isShowRightIcon = a.getBoolean(R.styleable.PzToolbar_pz_show_right_icon, false)
+            if (a.hasValue(R.styleable.CkToolbar_pz_show_right_icon)) {
+                isShowRightIcon = a.getBoolean(R.styleable.CkToolbar_pz_show_right_icon, false)
                 checkShowRightIcon(isShowRightIcon)
             }
 

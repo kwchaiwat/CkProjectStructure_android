@@ -5,7 +5,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:background="#20000000"
-             tools:context=".view.PzDialogConfirmFragment">
+             tools:context=".view.CkDialogConfirmFragment">
 
     <androidx.cardview.widget.CardView
             android:layout_width="@dimen/dimen_dialog_width"

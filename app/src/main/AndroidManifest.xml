@@ -25,8 +25,8 @@
 
         <activity
             android:name="com.example.ckprojectstructure_android.presentation.main.MainActivity"
-            android:screenOrientation="portrait"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="MainActivity" />

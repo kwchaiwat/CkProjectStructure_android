@@ -22,7 +22,7 @@ import com.projectstructure.ck.utilitylibrary.R;
 
 import java.util.Objects;
 
-public class PzDialogConfirmFragment extends DialogFragment {
+public class CkDialogConfirmFragment extends DialogFragment {
 
     private static final String KEY_TAG = "KEY_TAG";
     private static final String KEY_CANCELABLE = "KEY_CANCELABLE";
@@ -72,8 +72,8 @@ public class PzDialogConfirmFragment extends DialogFragment {
         }
     }
 
-    public static PzDialogConfirmFragment newInstance(int tag, boolean cancelable, boolean autoDismiss, State state, boolean single, String title, String message, String strOk, String strCancel) {
-        PzDialogConfirmFragment fragment = new PzDialogConfirmFragment();
+    public static CkDialogConfirmFragment newInstance(int tag, boolean cancelable, boolean autoDismiss, State state, boolean single, String title, String message, String strOk, String strCancel) {
+        CkDialogConfirmFragment fragment = new CkDialogConfirmFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(KEY_TAG, tag);
         bundle.putBoolean(KEY_CANCELABLE, cancelable);
@@ -391,7 +391,7 @@ public class PzDialogConfirmFragment extends DialogFragment {
 
         public void build() {
             try {
-                PzDialogConfirmFragment fragment = PzDialogConfirmFragment.newInstance(tag, cancelable, autoDismiss, state, single, title, message, strOk, strCancel);
+                CkDialogConfirmFragment fragment = CkDialogConfirmFragment.newInstance(tag, cancelable, autoDismiss, state, single, title, message, strOk, strCancel);
                 fragment.setOnOneDialogListener(onOneDialogListener);
                 fragment.setOnTwoDialogListener(onTwoDialogListener);
                 fragment.setCancelable(cancelable);

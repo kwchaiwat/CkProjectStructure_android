@@ -5,10 +5,7 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Bundle
 import com.example.ckprojectstructure_android.util.receiver.ConnectivityReceiver
-import com.projectstructure.ck.utilitylibrary.view.PzDialogConfirmFragment
-
-typealias OnCompleted<T> = (T) -> Unit
-typealias OnFailed<E> = (E) -> Unit
+import com.projectstructure.ck.utilitylibrary.view.CkDialogConfirmFragment
 
 abstract class BaseActivity : PermissionActivity() {
 
@@ -16,6 +13,7 @@ abstract class BaseActivity : PermissionActivity() {
         ConnectivityReceiver()
 
     abstract fun setUpView()
+    abstract fun setUpViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +33,7 @@ abstract class BaseActivity : PermissionActivity() {
     }
 
     fun showDialogMessage(title: String, message: String) {
-        showDialogMessage(title, message, true, PzDialogConfirmFragment.State.NORMAL)
+        showDialogMessage(title, message, true, CkDialogConfirmFragment.State.NORMAL)
     }
 
     fun showDialogMessage(title: String, message: String, onOneCallback: ((Dialog) -> Unit)?) {
@@ -43,13 +41,13 @@ abstract class BaseActivity : PermissionActivity() {
             title,
             message,
             false,
-            PzDialogConfirmFragment.State.NORMAL,
+            CkDialogConfirmFragment.State.NORMAL,
             onOneCallback
         )
     }
 
     fun showDialogMessage(title: String, message: String, isCancelable: Boolean) {
-        showDialogMessage(title, message, isCancelable, PzDialogConfirmFragment.State.NORMAL)
+        showDialogMessage(title, message, isCancelable, CkDialogConfirmFragment.State.NORMAL)
     }
 
     fun showDialogMessage(
@@ -62,12 +60,12 @@ abstract class BaseActivity : PermissionActivity() {
             title,
             message,
             isCancelable,
-            PzDialogConfirmFragment.State.NORMAL,
+            CkDialogConfirmFragment.State.NORMAL,
             onOneCallback
         )
     }
 
-    fun showDialogMessage(title: String, message: String, state: PzDialogConfirmFragment.State) {
+    fun showDialogMessage(title: String, message: String, state: CkDialogConfirmFragment.State) {
         showDialogMessage(title, message, true, state)
     }
 
@@ -75,7 +73,7 @@ abstract class BaseActivity : PermissionActivity() {
         title: String,
         message: String,
         isCancelable: Boolean,
-        state: PzDialogConfirmFragment.State
+        state: CkDialogConfirmFragment.State
     ) {
         showDialogMessage(title, message, isCancelable, state, null)
     }
@@ -84,10 +82,10 @@ abstract class BaseActivity : PermissionActivity() {
         title: String,
         message: String,
         isCancelable: Boolean,
-        state: PzDialogConfirmFragment.State,
+        state: CkDialogConfirmFragment.State,
         onOneCallback: ((Dialog) -> Unit)?
     ) {
-        PzDialogConfirmFragment.Builder(supportFragmentManager)
+        CkDialogConfirmFragment.Builder(supportFragmentManager)
             .setTitle(title)
             .setMessage(message)
             .setCancelable(isCancelable)
@@ -106,16 +104,16 @@ abstract class BaseActivity : PermissionActivity() {
         title: String,
         message: String,
         isCancelable: Boolean,
-        state: PzDialogConfirmFragment.State,
+        state: CkDialogConfirmFragment.State,
         onOneCallback: ((Dialog) -> Unit)?,
         onTwoCallback: ((Dialog) -> Unit)?
     ) {
-        PzDialogConfirmFragment.Builder(supportFragmentManager)
+        CkDialogConfirmFragment.Builder(supportFragmentManager)
             .setTitle(title)
             .setMessage(message)
             .setCancelable(isCancelable)
             .setState(state)
-            .setOnDialogListener(object : PzDialogConfirmFragment.OnTwoDialogListener {
+            .setOnDialogListener(object : CkDialogConfirmFragment.OnTwoDialogListener {
                 override fun onPositiveButtonClick(tag: Int, d: Dialog) {
                     if (onOneCallback != null) {
                         onOneCallback(d)

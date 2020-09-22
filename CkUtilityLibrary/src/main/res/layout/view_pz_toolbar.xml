@@ -4,7 +4,7 @@
              android:layout_width="match_parent"
              android:background="@color/colorPrimary"
              android:layout_height="?android:attr/actionBarSize"
-             tools:context=".view.PzToolbar">
+             tools:context=".view.CkToolbar">
 
     <ImageView
             android:id="@+id/imgBackIcon"

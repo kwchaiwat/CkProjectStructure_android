@@ -12,7 +12,6 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.example.ckprojectstructure_android.data.preference.TokenPreference
 
 /*******************************************************************************************
  ************************************ Private Method ***************************************
@@ -120,7 +119,7 @@ private fun loadImage(
 }
 
 private fun loadImageWithHeader(imageView: ImageView, url: String, isSkipMemoryCache: Boolean) {
-    val tokenPreference = TokenPreference(imageView.context)
+//    val tokenPreference = TokenPreference(imageView.context)
 //    val headers = LazyHeaders.Builder()
 //        .addHeader(Constants.AUTHORIZATION, "Bearer ${tokenPreference.getAccessToken()}").build()
 //    val glideUrl = GlideUrl(url, headers)
