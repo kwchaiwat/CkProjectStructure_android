@@ -2,18 +2,11 @@ package com.example.ckprojectstructure_android
 
 import android.app.Application
 import com.example.ckprojectstructure_android.data.di.*
-import com.example.ckprojectstructure_android.util.album.AlbumMediaLoader
 import com.inthecheesefactory.thecheeselibrary.manager.Contextor
-import com.orhanobut.logger.AndroidLogAdapter
-import com.orhanobut.logger.BuildConfig
-import com.orhanobut.logger.Logger
-import com.yanzhenjie.album.Album
-import com.yanzhenjie.album.AlbumConfig
 import io.reactivex.disposables.CompositeDisposable
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
-import java.util.*
 
 class CkApplication : Application() {
     private val compositeDisposable = CompositeDisposable()
@@ -25,13 +18,6 @@ class CkApplication : Application() {
 
         // Method from this class
         setUpKoin()
-
-        // Method from this class
-        setUpLogger()
-
-        // Method from this class
-        setUpAlbum()
-
     }
 
     override fun onTerminate() {
@@ -54,28 +40,10 @@ class CkApplication : Application() {
                     fragmentModule,
                     utilityModule,
                     repositoryModule,
-                    viewModelModule,
-                    useCaseModule
+                    viewModelModule
                 )
             )
         }
-    }
-
-    private fun setUpLogger() {
-        Logger.addLogAdapter(object : AndroidLogAdapter() {
-            override fun isLoggable(priority: Int, tag: String?): Boolean {
-                return BuildConfig.DEBUG
-            }
-        })
-    }
-
-    private fun setUpAlbum() {
-        val albumConfig = AlbumConfig.newBuilder(this)
-            .setAlbumLoader(AlbumMediaLoader())
-            .setLocale(Locale.getDefault())
-            .build()
-
-        Album.initialize(albumConfig)
     }
 
 }

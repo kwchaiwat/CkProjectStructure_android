@@ -9,13 +9,13 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_runstop"
-        android:layout_width="@dimen/album_dp_200"
-        android:layout_height="@dimen/album_dp_50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/album_dp_20"
-        android:background="@color/colorRedLight"
+        android:background="@drawable/button_style"
         android:onClick="onButtonClick"
-        android:text="stop" />
+        android:text="refresh" />
 
     <TextView
         android:id="@+id/text_update"

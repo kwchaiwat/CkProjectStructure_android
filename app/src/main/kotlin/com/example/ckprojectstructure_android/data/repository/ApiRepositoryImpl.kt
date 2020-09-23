@@ -1,6 +1,5 @@
 package com.example.ckprojectstructure_android.data.repository
 
-import com.example.ckprojectstructure_android.data.api.ApiResponse
 import com.example.ckprojectstructure_android.data.api.ApiService
 import com.example.ckprojectstructure_android.presentation.main.model.JsonCovidNineteen
 import io.reactivex.Observable

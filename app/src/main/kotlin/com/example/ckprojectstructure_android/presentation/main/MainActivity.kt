@@ -1,16 +1,16 @@
 package com.example.ckprojectstructure_android.presentation.main
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import com.example.ckprojectstructure_android.R
 import com.example.ckprojectstructure_android.data.api.ApiState
 import com.example.ckprojectstructure_android.presentation.BaseActivity
 import com.example.ckprojectstructure_android.presentation.main.model.JsonCovidNineteen
 import com.example.ckprojectstructure_android.util.extension.gone
+import com.example.ckprojectstructure_android.util.extension.observe
 import com.example.ckprojectstructure_android.util.extension.visible
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Thread.sleep
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.random.Random
 
 class MainActivity : BaseActivity() {
@@ -24,21 +24,19 @@ class MainActivity : BaseActivity() {
     private var newHospitalized: Int = -1
     private var newDeaths: Int = -1
     private var updateDate: String = ""
-    private var isRuning = true
 
-//    private val viewModel: MainViewModel by viewModel()
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setUpView()
         setUpViewModel()
-//        viewModel.getCovidNineteen()
+        viewModel.getCovidNineteen()
     }
 
     override fun setUpView() {
         randomCovid()
-
     }
 
     private fun randomCovid() {
@@ -55,26 +53,14 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setUpViewModel() {
-//        with(viewModel) {
-//            observe(apiStateCovidNineteen) { processGetCovidNineteen(it) }
-//        }
+        with(viewModel) {
+            observe(apiStateCovidNineteen) { processGetCovidNineteen(it) }
+        }
     }
 
     fun onButtonClick(v: View) {
         if (v == btn_runstop) {
-            if (isRuning) {
-                isRuning = false
-                btn_runstop.text = "Click Stop"
-                shimmerLayout.stopShimmer()
-                shimmerLayout.gone()
-            } else {
-                isRuning = true
-                randomCovid()
-                btn_runstop.text = "Click Run"
-                shimmerLayout.startShimmer()
-                shimmerLayout.visible()
-            }
-
+            viewModel.getCovidNineteen()
         }
     }
 
@@ -88,6 +74,10 @@ class MainActivity : BaseActivity() {
 
     private fun processGetCovidNineteen(apiState: ApiState<JsonCovidNineteen>) {
         when (apiState) {
+            ApiState.Loading -> {
+                shimmerLayout.startShimmer()
+                shimmerLayout.visible()
+            }
             is ApiState.Success -> {
                 confirmed = apiState.data.Confirmed
                 recovered = apiState.data.Recovered
@@ -101,6 +91,10 @@ class MainActivity : BaseActivity() {
                 setStatusCovid()
             }
             is ApiState.Fail -> showDialogMessage("", apiState.message)
+            ApiState.Done -> {
+                shimmerLayout.stopShimmer()
+                shimmerLayout.gone()
+            }
         }
     }
 

@@ -1,12 +1,10 @@
 package com.example.ckprojectstructure_android.data.di
 
 import com.example.ckprojectstructure_android.data.api.ApiDateDeserializer
-import com.example.ckprojectstructure_android.data.api.ApiHeaderInterceptor
 import com.example.ckprojectstructure_android.data.api.ApiService
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.orhanobut.logger.BuildConfig
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -16,17 +14,11 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 val networkModule = module {
-    single { provideProductFlavor() }
     single { provideGson(get()) }
     single { provideApiDateDeserializer() }
-    single { provideApiHeaderInterceptor() }
     single { provideRetrofitBuilder(get()) }
-    single { provideOkHttpClientBuilder(get()) }
+    single { provideOkHttpClientBuilder() }
     single { provideApiService(get(), get()) }
-}
-
-private fun provideProductFlavor(): String {
-    return BuildConfig.FLAVOR
 }
 
 private fun provideGson(apiDateDeserializer: ApiDateDeserializer): Gson {
@@ -40,17 +32,8 @@ private fun provideApiDateDeserializer(): ApiDateDeserializer {
     return ApiDateDeserializer()
 }
 
-
-private fun provideApiHeaderInterceptor(): ApiHeaderInterceptor {
-    return ApiHeaderInterceptor()
-}
-
-private fun provideOkHttpClientBuilder(
-    apiHeaderInterceptor: ApiHeaderInterceptor
-): OkHttpClient.Builder {
+private fun provideOkHttpClientBuilder(): OkHttpClient.Builder {
     val httpClientBuilder = OkHttpClient.Builder()
-
-    httpClientBuilder.addInterceptor(apiHeaderInterceptor)
 
     httpClientBuilder.connectTimeout(1, TimeUnit.MINUTES)
         .writeTimeout(3, TimeUnit.MINUTES)
@@ -74,7 +57,7 @@ private fun provideApiService(
 
     return retrofitBuilder
         .client(okHttpClient)
-        .baseUrl("")
+        .baseUrl("https://api.chaiwat.com")
         .build()
         .create(ApiService::class.java)
 }
