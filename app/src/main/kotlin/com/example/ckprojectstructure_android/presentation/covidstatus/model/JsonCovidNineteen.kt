@@ -1,4 +1,4 @@
-package com.example.ckprojectstructure_android.presentation.main.model
+package com.example.ckprojectstructure_android.presentation.covidstatus.model
 
 import com.google.gson.annotations.SerializedName
 

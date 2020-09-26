@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.covidstatus.CovidStatusActivity">
+
+    <FrameLayout
+        android:id="@+id/chatMenuTitleLayout"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="?android:attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="fitCenter"
+            android:onClick="onButtonClick"
+            android:layout_gravity="center_vertical|start"
+            android:src="@drawable/vector_back_white_24dp"
+            android:layout_marginStart="8dp" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_runstop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/album_dp_20"
+        android:background="@drawable/button_style"
+        android:onClick="onButtonClick"
+        android:text="refresh" />
+
+    <TextView
+        android:id="@+id/text_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/album_dp_20"
+        tools:text="อัพเดตล่าสุดวันที่ 0/0/0" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/placeholder_item" />
+
+            <include layout="@layout/placeholder_item" />
+
+            <include layout="@layout/placeholder_item" />
+
+            <include layout="@layout/placeholder_item" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/album_dp_15"
+            android:layout_weight="1"
+            android:foreground="@drawable/ripple_default_selector"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="ติดเชื้อสะสม"
+                    android:textAlignment="center"
+                    android:textColor="#e53935"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/text_infected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="9,999 [+ 4]"
+                    android:textAlignment="center"
+                    android:textColor="#e53935"
+                    android:textSize="35sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/album_dp_15"
+            android:layout_weight="1"
+            android:foreground="@drawable/ripple_default_selector"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="หายแล้ว"
+                    android:textAlignment="center"
+                    android:textColor="#43a047"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/text_recovery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="9,999 [+ 4]"
+                    android:textAlignment="center"
+                    android:textColor="#43a047"
+                    android:textSize="35sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/album_dp_15"
+            android:layout_weight="1"
+            android:foreground="@drawable/ripple_default_selector"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="รักษาอยู่ใน รพ."
+                    android:textAlignment="center"
+                    android:textColor="#00acc1"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/text_getwell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="9,999 [+ 4]"
+                    android:textAlignment="center"
+                    android:textColor="#00acc1"
+                    android:textSize="35sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/album_dp_15"
+            android:layout_weight="1"
+            android:foreground="@drawable/ripple_default_selector"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="เสียชีวิต"
+                    android:textAlignment="center"
+                    android:textColor="#546e7a"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/text_die"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="9,999 [+ 4]"
+                    android:textAlignment="center"
+                    android:textColor="#546e7a"
+                    android:textSize="35sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</LinearLayout>

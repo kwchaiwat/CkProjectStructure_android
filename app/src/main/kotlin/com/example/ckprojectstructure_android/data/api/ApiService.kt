@@ -1,6 +1,6 @@
 package com.example.ckprojectstructure_android.data.api
 
-import com.example.ckprojectstructure_android.presentation.main.model.JsonCovidNineteen
+import com.example.ckprojectstructure_android.presentation.covidstatus.model.JsonCovidNineteen
 import retrofit2.http.GET
 import io.reactivex.Observable
 

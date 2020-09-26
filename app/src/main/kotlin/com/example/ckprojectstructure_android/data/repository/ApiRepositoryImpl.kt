@@ -1,7 +1,7 @@
 package com.example.ckprojectstructure_android.data.repository
 
 import com.example.ckprojectstructure_android.data.api.ApiService
-import com.example.ckprojectstructure_android.presentation.main.model.JsonCovidNineteen
+import com.example.ckprojectstructure_android.presentation.covidstatus.model.JsonCovidNineteen
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
