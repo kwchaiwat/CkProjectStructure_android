@@ -1,6 +1,5 @@
 package com.example.ckprojectstructure_android.presentation.main
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import com.example.ckprojectstructure_android.R
@@ -17,8 +16,7 @@ class MainActivity : BaseActivity() {
         setUpViewModel()
     }
 
-    override fun setUpView() {
-    }
+    override fun setUpView() {}
 
     override fun setUpViewModel() {}
 

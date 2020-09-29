@@ -98,9 +98,9 @@ dependencies {
      * Android UI Test
      */
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test:runner:1.3.0'
-    androidTestImplementation 'androidx.test:rules:1.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
 
     /**
@@ -198,39 +198,6 @@ dependencies {
     // Font Library
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
     implementation 'io.github.inflationx:viewpump:2.0.3'
-
-    /**
-     * Location
-     */
-    implementation 'com.google.android.gms:play-services-location:17.0.0'
-    implementation('io.nlopez.smartlocation:library:3.3.3') { transitive = false }
-
-    // Event bus
-    implementation 'com.squareup:otto:1.3.8'
-    implementation 'org.greenrobot:eventbus:3.1.1'
-
-    // Page Indicator
-    implementation 'me.relex:circleindicator:1.2.2'
-
-    // Android-SpinKit
-    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
-
-    // Badge Icon
-    implementation 'q.rorbin:badgeview:1.1.3'
-
-    // Push Down Animation
-    implementation('com.github.thekhaeng:pushdown-anim-click:1.1.1') {
-        exclude group: 'com.android.support'
-    }
-
-    // Android-Toggle-Switch
-    implementation 'com.llollox:androidtoggleswitch:2.0.1'
-
-    // JSON Difference
-    implementation 'com.flipkart.zjsonpatch:zjsonpatch:0.4.11'
-
-    //Regular Expressions
-    implementation 'co.zsmb:kotlinverbalexpressions:0.1'
 
     // Shimmer effect
     implementation 'com.facebook.shimmer:shimmer:0.4.0'

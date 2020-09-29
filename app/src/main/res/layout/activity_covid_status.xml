@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/album_dp_20"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_style"
         android:onClick="onButtonClick"
         android:text="refresh" />
@@ -41,7 +41,7 @@
         android:id="@+id/text_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/album_dp_20"
+        android:layout_margin="20dp"
         tools:text="อัพเดตล่าสุดวันที่ 0/0/0" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -76,7 +76,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/album_dp_15"
+            android:layout_margin="15dp"
             android:layout_weight="1"
             android:foreground="@drawable/ripple_default_selector"
             app:cardCornerRadius="8dp">
@@ -116,7 +116,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/album_dp_15"
+            android:layout_margin="15dp"
             android:layout_weight="1"
             android:foreground="@drawable/ripple_default_selector"
             app:cardCornerRadius="8dp">
@@ -156,7 +156,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/album_dp_15"
+            android:layout_margin="15dp"
             android:layout_weight="1"
             android:foreground="@drawable/ripple_default_selector"
             app:cardCornerRadius="8dp">
@@ -196,7 +196,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/album_dp_15"
+            android:layout_margin="15dp"
             android:layout_weight="1"
             android:foreground="@drawable/ripple_default_selector"
             app:cardCornerRadius="8dp">
